@@ -119,6 +119,7 @@ def render_sources(sources):
 # ─────────────────────────────────────────────
 with st.sidebar:
     st.markdown("## 🔑 API Key")
+    _secret_key = st.secrets.get("ANTHROPIC_API_KEY", "") if hasattr(st, "secrets") else ""
     api_key = st.text_input(
         "Anthropic API Key",
         type="password",
