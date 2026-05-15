@@ -122,6 +122,7 @@ with st.sidebar:
     api_key = st.text_input(
         "Anthropic API Key",
         type="password",
+        value=_secret_key,
         placeholder="sk-ant-… (optional if pre-configured)",
         help="Leave blank to use the server key. Your key is never stored.",
     )
