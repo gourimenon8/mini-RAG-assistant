@@ -120,13 +120,13 @@ def render_sources(sources):
 with st.sidebar:
     st.markdown("## 🔑 API Key")
     _secret_key = st.secrets.get("ANTHROPIC_API_KEY", "") if hasattr(st, "secrets") else ""
-    api_key = st.text_input(
+    _typed_key = st.text_input(
         "Anthropic API Key",
         type="password",
-        value=_secret_key,
-        placeholder="sk-ant-… (optional if pre-configured)",
-        help="Leave blank to use the server key. Your key is never stored.",
+        placeholder="Pre-configured ✓" if _secret_key else "sk-ant-…",
+        help="A server key is pre-configured. You can override it by entering your own.",
     )
+    api_key = _typed_key if _typed_key else _secret_key
 
     st.markdown("---")
     st.markdown("## 📄 Upload Documents")
