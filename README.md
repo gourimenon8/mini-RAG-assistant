@@ -80,16 +80,6 @@ streamlit run app.py
 
 ---
 
-## Potential enhancements (given more time)
-- **Hybrid search**: BM25 keyword search + dense retrieval re-ranked together
-- **Precision@k evaluation**: Auto-evaluate retrieval quality on a labeled test set
-- **MMR-based chunk selection**: Reduce redundancy in retrieved context
-- **Source highlighting**: Highlight matched text spans in a PDF viewer
-- **Persistent index**: Serialize FAISS index to disk so users don't re-process on every session
-- **Multi-format support**: DOCX, TXT, web URLs via trafilatura
-
----
-
 ## Dependencies
 
 ```
@@ -103,16 +93,3 @@ numpy>=1.26.0
 
 ---
 
-## Sample output
-
-**Query:** *What methods do the papers use for uncertainty quantification?*
-
-**Answer:**
-> The papers describe two primary approaches to uncertainty quantification. [Source 1] presents a conformal prediction framework that constructs distribution-free prediction sets with guaranteed coverage. [Source 3] uses Monte Carlo dropout during inference to estimate epistemic uncertainty, reporting that this reduces overconfident predictions by 23% on out-of-distribution inputs. [Source 2] does not directly address uncertainty quantification.
-
-**Retrieved Sources:**
-| # | File | Page | Relevance |
-|---|------|------|-----------|
-| 1 | paper_A.pdf | 4 | 78.3% |
-| 2 | paper_B.pdf | 7 | 61.1% |
-| 3 | paper_C.pdf | 2 | 55.4% |
